@@ -1,0 +1,3076 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/coinbase/coinbase-exchange-node">coinbase-exchange (v0.2.2)</a>
+</h1>
+<h4>Client for the Coinbase Exchange API</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange">module coinbase-exchange</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>AuthenticatedClient
+            <span class="apidocSignatureSpan">(key, b64secret, passphrase, apiURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>Orderbook
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>OrderbookSync
+            <span class="apidocSignatureSpan">(productID, apiURI, websocketURI, authenticatedClient)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>PublicClient
+            <span class="apidocSignatureSpan">(productID, apiURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>WebsocketClient
+            <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coinbase-exchange.</span>AuthenticatedClient.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coinbase-exchange.</span>Orderbook.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coinbase-exchange.</span>OrderbookSync.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coinbase-exchange.</span>PublicClient.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coinbase-exchange.</span>WebsocketClient.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.AuthenticatedClient">module coinbase-exchange.AuthenticatedClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.AuthenticatedClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>AuthenticatedClient
+            <span class="apidocSignatureSpan">(key, b64secret, passphrase, apiURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.super_">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.</span>super_
+            <span class="apidocSignatureSpan">(productID, apiURI)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.AuthenticatedClient.prototype">module coinbase-exchange.AuthenticatedClient.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._getSignature">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_getSignature
+            <span class="apidocSignatureSpan">(method, relativeURI, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._placeOrder">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_placeOrder
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._transferFunds">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_transferFunds
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.buy">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>buy
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelAllOrders">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelAllOrders
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrder">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelOrder
+            <span class="apidocSignatureSpan">(orderID, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrders">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelOrders
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.delete">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>delete
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.deposit">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>deposit
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.get">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>get
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccount">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccount
+            <span class="apidocSignatureSpan">(accountID, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHistory">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccountHistory
+            <span class="apidocSignatureSpan">(accountID, args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHolds">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccountHolds
+            <span class="apidocSignatureSpan">(accountID, args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccounts">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccounts
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getFills">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getFills
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrder">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getOrder
+            <span class="apidocSignatureSpan">(orderID, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrders">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getOrders
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getProductOrderBook">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getProductOrderBook
+            <span class="apidocSignatureSpan">(args, productId, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.post">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>post
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.put">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>put
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.request">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>request
+            <span class="apidocSignatureSpan">(method, uriParts, opts, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.sell">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>sell
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.withdraw">
+            function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>withdraw
+            <span class="apidocSignatureSpan">(params, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.Orderbook">module coinbase-exchange.Orderbook</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.Orderbook">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>Orderbook
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.Orderbook.prototype">module coinbase-exchange.Orderbook.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype._getTree">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>_getTree
+            <span class="apidocSignatureSpan">(side)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.add">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>add
+            <span class="apidocSignatureSpan">(order)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.change">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>change
+            <span class="apidocSignatureSpan">(change)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.get">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>get
+            <span class="apidocSignatureSpan">(orderId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.match">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>match
+            <span class="apidocSignatureSpan">(match)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.remove">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>remove
+            <span class="apidocSignatureSpan">(orderId)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.Orderbook.prototype.state">
+            function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>state
+            <span class="apidocSignatureSpan">(book)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.OrderbookSync">module coinbase-exchange.OrderbookSync</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync.OrderbookSync">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>OrderbookSync
+            <span class="apidocSignatureSpan">(productID, apiURI, websocketURI, authenticatedClient)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync.super_">
+            function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.</span>super_
+            <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.OrderbookSync.prototype">module coinbase-exchange.OrderbookSync.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.loadOrderbook">
+            function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>loadOrderbook
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.onMessage">
+            function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>onMessage
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.processMessage">
+            function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>processMessage
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.PublicClient">module coinbase-exchange.PublicClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.PublicClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>PublicClient
+            <span class="apidocSignatureSpan">(productID, apiURI)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.PublicClient.prototype">module coinbase-exchange.PublicClient.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.addHeaders">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>addHeaders
+            <span class="apidocSignatureSpan">(obj, additional)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.delete">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>delete
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.get">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>get
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getCurrencies">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getCurrencies
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProduct24HrStats">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProduct24HrStats
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductHistoricRates">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductHistoricRates
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductOrderBook">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductOrderBook
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTicker">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTicker
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTradeStream">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTradeStream
+            <span class="apidocSignatureSpan">(tradesFrom, tradesTo)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTrades">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTrades
+            <span class="apidocSignatureSpan">(args, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProducts">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProducts
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getTime">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getTime
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeAbsoluteURI">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeAbsoluteURI
+            <span class="apidocSignatureSpan">(relativeURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeRelativeURI">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeRelativeURI
+            <span class="apidocSignatureSpan">(parts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeRequestCallback">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeRequestCallback
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.post">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>post
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.put">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>put
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.PublicClient.prototype.request">
+            function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>request
+            <span class="apidocSignatureSpan">(method, uriParts, opts, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.WebsocketClient">module coinbase-exchange.WebsocketClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.WebsocketClient">
+            function <span class="apidocSignatureSpan">coinbase-exchange.</span>WebsocketClient
+            <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.super_">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coinbase-exchange.WebsocketClient.prototype">module coinbase-exchange.WebsocketClient.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.connect">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>connect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.disconnect">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>disconnect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onClose">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onClose
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onMessage">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onMessage
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onOpen">
+            function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onOpen
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange" id="apidoc.module.coinbase-exchange">module coinbase-exchange</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient" id="apidoc.element.coinbase-exchange.AuthenticatedClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>AuthenticatedClient
+        <span class="apidocSignatureSpan">(key, b64secret, passphrase, apiURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuthenticatedClient = function (key, b64secret, passphrase, apiURI) {
+  var self = this;
+
+  PublicClient.call(self, '', apiURI);
+  self.key = key;
+  self.b64secret = b64secret;
+  self.passphrase = passphrase;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The [private exchange API
+endpoints](https://docs.gdax.com/#private) require you to
+authenticate with an API key. You can create a new API key [in your exchange
+account's settings](https://gdax.com/settings).
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var authedClient = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">AuthenticatedClient</span>(
+  key, b64secret, passphrase);
+```
+
+Like the `PublicClient`, all API methods are callback based. The callback
+should be in the same format:
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook" id="apidoc.element.coinbase-exchange.Orderbook">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>Orderbook
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Orderbook = function () {
+  var self = this;
+
+  // Orders hashed by ID
+  self._ordersByID = {};
+
+  self._bids = new RBTree(function(a, b) {
+    return a.price.cmp(b.price);
+  });
+
+  self._asks = new RBTree(function(a, b) {
+    return a.price.cmp(b.price);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `message`
+* `close`
+
+### Orderbook
+`Orderbook` is a data structure that can be used to store a local copy of the orderbook.
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var orderbook = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">Orderbook</span>();
+```
+The orderbook has the following methods:
+* `state(book)`
+* `get(orderId)`
+* `add(order)`
+* `remove(orderId)`
+* `match(match)`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync" id="apidoc.element.coinbase-exchange.OrderbookSync">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>OrderbookSync
+        <span class="apidocSignatureSpan">(productID, apiURI, websocketURI, authenticatedClient)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">OrderbookSync = function (productID, apiURI, websocketURI, authenticatedClient) {
+  var self = this;
+
+  self.productID = productID || 'BTC-USD';
+  self.apiURI = apiURI || 'https://api.gdax.com';
+  self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+  self.authenticatedClient = authenticatedClient;
+
+  self._queue = [];
+  self._sequence = -1;
+
+  WebsocketClient.call(self, self.productID, self.websocketURI);
+  self.loadOrderbook();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Orderbook Sync
+`OrderbookSync` creates a local mirror of the orderbook on GDAX using
+`Orderbook` and `WebsocketClient` as described [here](https://docs.gdax.com/#real-time-order-book).
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var orderbookSync = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">OrderbookSync</span>();
+console.log(orderbookSync.book.state());
+```
+
+## Testing
+
+```bash
+npm run test
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient" id="apidoc.element.coinbase-exchange.PublicClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>PublicClient
+        <span class="apidocSignatureSpan">(productID, apiURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PublicClient = function (productID, apiURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.apiURI = apiURI || 'https://api.gdax.com';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### The Public API Client
+The GDAX API has both public and private endpoints. If you're only
+interested in the public endpoints, you should use a `PublicClient`.
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var publicClient = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">PublicClient</span>();
+```
+
+All API methods are callback based. Your callback should accept three arguments:
+
+```
+var callback = function(err, response, data) {
+// your code here.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient" id="apidoc.element.coinbase-exchange.WebsocketClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>WebsocketClient
+        <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">WebsocketClient = function (productID, websocketURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+  EventEmitter.call(self);
+  self.connect();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+[exchange websocket messages](https://docs.gdax.com/#messages).
+=======
+The `WebsocketClient` allows you to connect and listen to the
+[exchange websocket messages](https://docs.exchange.coinbase.com/#messages).
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Add deprecation notice
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var websocket = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">WebsocketClient</span>();
+websocket.on('message', function(data) { console.log(data); });
+```
+The following events can be emitted from the `WebsocketClient`:
+* `open`
+* `message`
+* `close`
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.AuthenticatedClient" id="apidoc.module.coinbase-exchange.AuthenticatedClient">module coinbase-exchange.AuthenticatedClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.AuthenticatedClient" id="apidoc.element.coinbase-exchange.AuthenticatedClient.AuthenticatedClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>AuthenticatedClient
+        <span class="apidocSignatureSpan">(key, b64secret, passphrase, apiURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">AuthenticatedClient = function (key, b64secret, passphrase, apiURI) {
+  var self = this;
+
+  PublicClient.call(self, '', apiURI);
+  self.key = key;
+  self.b64secret = b64secret;
+  self.passphrase = passphrase;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+The [private exchange API
+endpoints](https://docs.gdax.com/#private) require you to
+authenticate with an API key. You can create a new API key [in your exchange
+account's settings](https://gdax.com/settings).
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var authedClient = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">AuthenticatedClient</span>(
+  key, b64secret, passphrase);
+```
+
+Like the `PublicClient`, all API methods are callback based. The callback
+should be in the same format:
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.super_" id="apidoc.element.coinbase-exchange.AuthenticatedClient.super_">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.</span>super_
+        <span class="apidocSignatureSpan">(productID, apiURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function (productID, apiURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.apiURI = apiURI || 'https://api.gdax.com';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.AuthenticatedClient.prototype" id="apidoc.module.coinbase-exchange.AuthenticatedClient.prototype">module coinbase-exchange.AuthenticatedClient.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._getSignature" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._getSignature">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_getSignature
+        <span class="apidocSignatureSpan">(method, relativeURI, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getSignature = function (method, relativeURI, opts) {
+  var self = this;
+  var body = '';
+
+  if (opts.body) {
+    body = JSON.stringify(opts.body);
+    opts.body = body;
+  } else if (opts.qs &amp;&amp; Object.keys(opts.qs).length !== 0) {
+    body = '?' + querystring.stringify(opts.qs);
+  }
+
+  var timestamp = Date.now() / 1000;
+  var what = timestamp + method + relativeURI + body;
+  var key = Buffer(self.b64secret, 'base64');
+  var hmac = crypto.createHmac('sha256', key);
+  var signature = hmac.update(what).digest('base64');
+  return {
+    'CB-ACCESS-KEY': self.key,
+    'CB-ACCESS-SIGN': signature,
+    'CB-ACCESS-TIMESTAMP': timestamp,
+    'CB-ACCESS-PASSPHRASE': self.passphrase,
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._placeOrder" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._placeOrder">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_placeOrder
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_placeOrder = function (params, callback) {
+  var self = this;
+
+  var requiredParams = ['size', 'side', 'product_id'];
+
+  if (params.type !== 'market') {
+    requiredParams.push('price');
+  }
+
+  _.forEach(requiredParams, function(param) {
+    if (params[param] === undefined) {
+      throw "`opts` must include param `" + param + "`";
+    }
+  });
+  var opts = { 'body': params };
+  return prototype.post.call(self, ['orders'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._transferFunds" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype._transferFunds">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>_transferFunds
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_transferFunds = function (params, callback) {
+  var self = this;
+  _.forEach(['type', 'amount', 'coinbase_account_id'], function(param) {
+    if (params[param] === undefined) {
+      throw "`opts` must include param `" + param + "`";
+    }
+  });
+  var opts = { 'body': params };
+  return prototype.post.call(self, ['transfers'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.buy" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.buy">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>buy
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buy = function (params, callback) {
+  var self = this;
+  params.side = 'buy';
+  return self._placeOrder(params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+// Buy 1 BTC @ 100 USD
+var buyParams = {
+  'price': '100.00', // USD
+  'size': '1',  // BTC
+  'product_id': 'BTC-USD',
+};
+authedClient.<span class="apidocCodeKeywordSpan">buy</span>(buyParams, callback);
+
+// Sell 1 BTC @ 110 USD
+var sellParams = {
+  'price': '110.00', // USD
+  'size': '1', // BTC
+  'product_id': 'BTC-USD',
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelAllOrders" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelAllOrders">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelAllOrders
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cancelAllOrders = function (args, callback) {
+  var self = this;
+  var currentDeletedOrders = [];
+  var totalDeletedOrders = [];
+  var query = true;
+  var response;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+
+  async.doWhilst(
+    deleteOrders,
+    untilEmpty,
+    completed
+  );
+
+  function deleteOrders(done) {
+    prototype.delete.call(self, ['orders'], opts, function(err, resp, data) {
+
+      if (err) {
+        done(err);
+        return;
+      }
+
+      if ((resp &amp;&amp; resp.statusCode != 200) || !data) {
+        var err = new Error('Failed to cancel all orders');
+        query = false;
+        done(err);
+        return;
+      }
+
+      currentDeletedOrders = data;
+      totalDeletedOrders = totalDeletedOrders.concat(currentDeletedOrders);
+      response = resp;
+
+      done();
+    });
+  }
+
+  function untilEmpty() {
+    return (currentDeletedOrders.length &gt; 0 &amp;&amp; query)
+  }
+
+  function completed(err) {
+    callback(err, response, totalDeletedOrders);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// all the orders are deleted.
+
+// `cancelAllOrders` will handle making these requests for you asyncronously.
+// Also you can add a product_id param to only delete orders of that product
+
+// The response will be the response of the last call and the data will
+// have the order ID's of all your deleted orders
+authedClient.<span class="apidocCodeKeywordSpan">cancelAllOrders</span>({product_id: 'BTC-USD'}, callback);
+```
+
+* [`getOrders`](https://docs.gdax.com/#list-open-orders)
+```javascript
+authedClient.getOrders(callback);
+// For pagination, you can include extra page arguments
+authedClient.getOrders({'after': 3000}, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrder" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrder">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelOrder
+        <span class="apidocSignatureSpan">(orderID, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cancelOrder = function (orderID, callback) {
+  var self = this;
+
+  if (!callback &amp;&amp; (typeof orderID === 'function')) {
+    callback = orderID;
+    callback(new Error('must provide an orderID or consider cancelOrders'));
+    return;
+  }
+
+  return prototype.delete.call(self, ['orders', orderID], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+authedClient.sell(sellParams, callback);
+```
+
+* [`cancelOrder`](https://docs.gdax.com/#cancel-an-order)
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+authedClient.<span class="apidocCodeKeywordSpan">cancelOrder</span>(orderID, callback);
+```
+
+* [`cancelOrders`](https://docs.gdax.com/#cancel-all)
+```javascript
+authedClient.cancelOrders(callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrders" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.cancelOrders">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>cancelOrders
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cancelOrders = function (callback) {
+  var self = this;
+  return prototype.delete.call(self, ['orders'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+authedClient.cancelOrder(orderID, callback);
+```
+
+* [`cancelOrders`](https://docs.gdax.com/#cancel-all)
+```javascript
+authedClient.<span class="apidocCodeKeywordSpan">cancelOrders</span>(callback);
+```
+
+* [`cancelAllOrders`](https://docs.gdax.com/#cancel-all)
+```javascript
+// `cancelOrders` may require you to make the request multiple times until
+// all the orders are deleted.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.delete" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.delete">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>delete
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.deposit" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.deposit">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>deposit
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">deposit = function (params, callback) {
+  var self = this;
+  params.type = 'deposit';
+  return self._transferFunds(params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [`deposit`, `withdraw`](https://docs.gdax.com/#list-fills)
+```javascript
+// Deposit to your Exchange USD account from your Coinbase USD account.
+var depositParamsUSD = {
+  'amount': '100.00', // USD,
+  'coinbase_account_id': '60680c98bfe96c2601f27e9c', // USD Coinbase Account ID
+};
+authedClient.<span class="apidocCodeKeywordSpan">deposit</span>(depositParamsUSD, callback);
+// Withdraw from your Exchange USD account to your Coinbase USD account.
+var withdrawParamsUSD = {
+  'amount': '100.00', // USD,
+  'coinbase_account_id': '60680c98bfe96c2601f27e9c', // USD Coinbase Account ID
+};
+authedClient.withdraw(withdrawParamsUSD, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.get" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.get">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>get
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccount" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccount">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccount
+        <span class="apidocSignatureSpan">(accountID, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAccount = function (accountID, callback) {
+  var self = this;
+  return prototype.get.call(self, ['accounts', accountID], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+authedClient.getAccounts(callback);
+```
+
+* [`getAccount`](https://docs.gdax.com/#get-an-account)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.<span class="apidocCodeKeywordSpan">getAccount</span>(accountID, callback);
+```
+
+* [`getAccountHistory`](https://docs.gdax.com/#get-account-history)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.getAccountHistory(accountID, callback);
+// For pagination, you can include extra page arguments
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHistory" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHistory">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccountHistory
+        <span class="apidocSignatureSpan">(accountID, args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAccountHistory = function (accountID, args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['accounts', accountID, 'ledger'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.getAccount(accountID, callback);
+```
+
+* [`getAccountHistory`](https://docs.gdax.com/#get-account-history)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.<span class="apidocCodeKeywordSpan">getAccountHistory</span>(accountID, callback);
+// For pagination, you can include extra page arguments
+authedClient.getAccountHistory(accountID, {'before': 3000}, callback);
+```
+
+* [`getAccountHolds`](https://docs.gdax.com/#get-holds)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHolds" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccountHolds">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccountHolds
+        <span class="apidocSignatureSpan">(accountID, args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAccountHolds = function (accountID, args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['accounts', accountID, 'holds'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// For pagination, you can include extra page arguments
+authedClient.getAccountHistory(accountID, {'before': 3000}, callback);
+```
+
+* [`getAccountHolds`](https://docs.gdax.com/#get-holds)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.<span class="apidocCodeKeywordSpan">getAccountHolds</span>(accountID, callback);
+// For pagination, you can include extra page arguments
+authedClient.getAccountHolds(accountID, {'before': 3000}, callback);
+```
+
+* [`buy`, `sell`](https://docs.gdax.com/#place-a-new-order)
+```javascript
+// Buy 1 BTC @ 100 USD
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccounts" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getAccounts">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getAccounts
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAccounts = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['accounts'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+`PublicClient`, so if you're hitting both public and private API endpoints you
+only need to create a single client.
+
+#### Private API Methods
+
+* [`getAccounts`](https://docs.gdax.com/#list-accounts)
+```javascript
+authedClient.<span class="apidocCodeKeywordSpan">getAccounts</span>(callback);
+```
+
+* [`getAccount`](https://docs.gdax.com/#get-an-account)
+```javascript
+var accountID = '7d0f7d8e-dd34-4d9c-a846-06f431c381ba';
+authedClient.getAccount(accountID, callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getFills" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getFills">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getFills
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getFills = function (args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['fills'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+authedClient.getOrder(orderID, callback);
+```
+
+* [`getFills`](https://docs.gdax.com/#list-fills)
+```javascript
+authedClient.<span class="apidocCodeKeywordSpan">getFills</span>(callback);
+// For pagination, you can include extra page arguments
+authedClient.getFills({'before': 3000}, callback);
+```
+
+* [`deposit`, `withdraw`](https://docs.gdax.com/#list-fills)
+```javascript
+// Deposit to your Exchange USD account from your Coinbase USD account.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrder" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrder">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getOrder
+        <span class="apidocSignatureSpan">(orderID, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getOrder = function (orderID, callback) {
+  var self = this;
+
+  if (!callback &amp;&amp; (typeof orderID === 'function')) {
+    callback = orderID;
+    callback(new Error('must provide an orderID or consider getOrders'));
+    return;
+  }
+
+  return prototype.get.call(self, ['orders', orderID], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// For pagination, you can include extra page arguments
+authedClient.getOrders({'after': 3000}, callback);
+```
+
+* [`getOrder`](https://docs.gdax.com/#get-an-order)
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+authedClient.<span class="apidocCodeKeywordSpan">getOrder</span>(orderID, callback);
+```
+
+* [`getFills`](https://docs.gdax.com/#list-fills)
+```javascript
+authedClient.getFills(callback);
+// For pagination, you can include extra page arguments
+authedClient.getFills({'before': 3000}, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrders" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getOrders">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getOrders
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getOrders = function (args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['orders'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// The response will be the response of the last call and the data will
+// have the order ID's of all your deleted orders
+authedClient.cancelAllOrders({product_id: 'BTC-USD'}, callback);
+```
+
+* [`getOrders`](https://docs.gdax.com/#list-open-orders)
+```javascript
+authedClient.<span class="apidocCodeKeywordSpan">getOrders</span>(callback);
+// For pagination, you can include extra page arguments
+authedClient.getOrders({'after': 3000}, callback);
+```
+
+* [`getOrder`](https://docs.gdax.com/#get-an-order)
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getProductOrderBook" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.getProductOrderBook">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>getProductOrderBook
+        <span class="apidocSignatureSpan">(args, productId, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductOrderBook = function (args, productId, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['products', productId, 'book'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+publicClient.getProducts(callback);
+```
+
+* [`getProductOrderBook`](https://docs.gdax.com/#get-product-order-book)
+```javascript
+// Get the order book at the default level of detail.
+publicClient.<span class="apidocCodeKeywordSpan">getProductOrderBook</span>(callback);
+// Get the order book at a specific level of detail.
+publicClient.getProductOrderBook({'level': 3}, callback);
+```
+
+* [`getProductTicker`](https://docs.gdax.com/#get-product-ticker)
+```javascript
+publicClient.getProductTicker(callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.post" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.post">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>post
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.put" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.put">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>put
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.request" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.request">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>request
+        <span class="apidocSignatureSpan">(method, uriParts, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (method, uriParts, opts, callback) {
+  var self = this;
+
+  opts = opts || {};
+  if (!callback &amp;&amp; (typeof opts === 'function')) {
+    callback = opts;
+    opts = {};
+  }
+
+  if (!callback) {
+    throw "Must supply a callback"
+  }
+
+  var relativeURI = self.makeRelativeURI(uriParts);
+  method = method.toUpperCase();
+  _.assign(opts, {
+    'method': method,
+    'uri': self.makeAbsoluteURI(relativeURI)
+  });
+
+  self.addHeaders(opts, self._getSignature(method, relativeURI, opts));
+  request(opts, self.makeRequestCallback(callback));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.sell" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.sell">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>sell
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sell = function (params, callback) {
+  var self = this;
+  params.side = 'sell';
+  return self._placeOrder(params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// Sell 1 BTC @ 110 USD
+var sellParams = {
+  'price': '110.00', // USD
+  'size': '1', // BTC
+  'product_id': 'BTC-USD',
+};
+authedClient.<span class="apidocCodeKeywordSpan">sell</span>(sellParams, callback);
+```
+
+* [`cancelOrder`](https://docs.gdax.com/#cancel-an-order)
+```javascript
+var orderID = 'd50ec984-77a8-460a-b958-66f114b0de9b';
+authedClient.cancelOrder(orderID, callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.withdraw" id="apidoc.element.coinbase-exchange.AuthenticatedClient.prototype.withdraw">
+        function <span class="apidocSignatureSpan">coinbase-exchange.AuthenticatedClient.prototype.</span>withdraw
+        <span class="apidocSignatureSpan">(params, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">withdraw = function (params, callback) {
+  var self = this;
+  params.type = 'withdraw';
+  return self._transferFunds(params, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+authedClient.deposit(depositParamsUSD, callback);
+// Withdraw from your Exchange USD account to your Coinbase USD account.
+var withdrawParamsUSD = {
+  'amount': '100.00', // USD,
+  'coinbase_account_id': '60680c98bfe96c2601f27e9c', // USD Coinbase Account ID
+};
+authedClient.<span class="apidocCodeKeywordSpan">withdraw</span>(withdrawParamsUSD, callback);
+
+// Deposit to your Exchange BTC account from your Coinbase BTC account.
+var depositParamsBTC = {
+  'amount': '2.0', // BTC,
+  'coinbase_account_id': '536a541fa9393bb3c7000023', // BTC Coinbase Account ID
+};
+authedClient.deposit(depositParamsBTC, callback);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.Orderbook" id="apidoc.module.coinbase-exchange.Orderbook">module coinbase-exchange.Orderbook</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.Orderbook" id="apidoc.element.coinbase-exchange.Orderbook.Orderbook">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>Orderbook
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Orderbook = function () {
+  var self = this;
+
+  // Orders hashed by ID
+  self._ordersByID = {};
+
+  self._bids = new RBTree(function(a, b) {
+    return a.price.cmp(b.price);
+  });
+
+  self._asks = new RBTree(function(a, b) {
+    return a.price.cmp(b.price);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `message`
+* `close`
+
+### Orderbook
+`Orderbook` is a data structure that can be used to store a local copy of the orderbook.
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var orderbook = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">Orderbook</span>();
+```
+The orderbook has the following methods:
+* `state(book)`
+* `get(orderId)`
+* `add(order)`
+* `remove(orderId)`
+* `match(match)`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.Orderbook.prototype" id="apidoc.module.coinbase-exchange.Orderbook.prototype">module coinbase-exchange.Orderbook.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype._getTree" id="apidoc.element.coinbase-exchange.Orderbook.prototype._getTree">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>_getTree
+        <span class="apidocSignatureSpan">(side)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getTree = function (side) {
+  return side == 'buy' ? this._bids : this._asks;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.add" id="apidoc.element.coinbase-exchange.Orderbook.prototype.add">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>add
+        <span class="apidocSignatureSpan">(order)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">add = function (order) {
+  var self = this;
+
+  order = {
+    id: order.order_id || order.id,
+    side: order.side,
+    price: num(order.price),
+    size: num(order.size || order.remaining_size),
+  };
+
+  var tree = self._getTree(order.side);
+  var node = tree.find({price: order.price});
+
+  if (!node) {
+    node = {
+      price: order.price,
+      orders: []
+    }
+    tree.insert(node);
+  }
+
+  node.orders.push(order);
+  self._ordersByID[order.id] = order;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.change" id="apidoc.element.coinbase-exchange.Orderbook.prototype.change">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>change
+        <span class="apidocSignatureSpan">(change)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">change = function (change) {
+  var self = this;
+
+  var size = num(change.new_size);
+  var price = num(change.price);
+  var order = self.get(change.order_id)
+  var tree = self._getTree(change.side);
+  var node = tree.find({price: price});
+
+  if (!node || node.orders.indexOf(order) &lt; 0) {
+    return;
+  }
+
+  var nodeOrder = node.orders[node.orders.indexOf(order)];
+
+  var newSize = parseFloat(order.size);
+  var oldSize = parseFloat(change.old_size);
+
+  assert.equal(oldSize, newSize);
+
+  nodeOrder.size = size;
+  self._ordersByID[nodeOrder.id] = nodeOrder;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.get" id="apidoc.element.coinbase-exchange.Orderbook.prototype.get">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>get
+        <span class="apidocSignatureSpan">(orderId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (orderId) {
+  return this._ordersByID[orderId]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.match" id="apidoc.element.coinbase-exchange.Orderbook.prototype.match">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>match
+        <span class="apidocSignatureSpan">(match)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">match = function (match) {
+  var self = this;
+
+  var size = num(match.size);
+  var price = num(match.price);
+  var tree = self._getTree(match.side);
+  var node = tree.find({price: price});
+  assert(node);
+
+  var order = node.orders[0];
+  assert.equal(order.id, match.maker_order_id);
+
+  order.size = order.size.sub(size);
+  self._ordersByID[order.id] = order;
+
+  assert(order.size &gt;= 0);
+
+  if (order.size.eq(0)) {
+    self.remove(order.id);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.remove" id="apidoc.element.coinbase-exchange.Orderbook.prototype.remove">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>remove
+        <span class="apidocSignatureSpan">(orderId)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (orderId) {
+  var self = this;
+  var order = self.get(orderId);
+
+  if (!order) {
+    return;
+  }
+
+  var tree = self._getTree(order.side);
+  var node = tree.find({price: order.price});
+  assert(node);
+  var orders = node.orders;
+
+  orders.splice(orders.indexOf(order), 1);
+
+  if (orders.length === 0) {
+    tree.remove(node);
+  }
+
+  delete self._ordersByID[order.id];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.Orderbook.prototype.state" id="apidoc.element.coinbase-exchange.Orderbook.prototype.state">
+        function <span class="apidocSignatureSpan">coinbase-exchange.Orderbook.prototype.</span>state
+        <span class="apidocSignatureSpan">(book)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">state = function (book) {
+  var self = this;
+
+  if (book) {
+
+    book.bids.forEach(function(order) {
+      order = {
+        id: order[2],
+        side: 'buy',
+        price: num(order[0]),
+        size: num(order[1])
+      }
+      self.add(order);
+    });
+
+    book.asks.forEach(function(order) {
+      order = {
+        id: order[2],
+        side: 'sell',
+        price: num(order[0]),
+        size: num(order[1])
+      }
+      self.add(order);
+    });
+
+  } else {
+
+    book = {
+      asks: [],
+      bids: []
+    };
+
+    self._bids.reach(function(bid) {
+      bid.orders.forEach(function(order) {
+        book.bids.push(order);
+      });
+    });
+
+    self._asks.each(function(ask) {
+      ask.orders.forEach(function(order) {
+        book.asks.push(order);
+      });
+    });
+
+    return book;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### Orderbook Sync
+`OrderbookSync` creates a local mirror of the orderbook on GDAX using
+`Orderbook` and `WebsocketClient` as described [here](https://docs.gdax.com/#real-time-order-book).
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var orderbookSync = new CoinbaseExchange.OrderbookSync();
+console.log(orderbookSync.book.<span class="apidocCodeKeywordSpan">state</span>());
+```
+
+## Testing
+
+```bash
+npm run test
+npm run scan_packages
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.OrderbookSync" id="apidoc.module.coinbase-exchange.OrderbookSync">module coinbase-exchange.OrderbookSync</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync.OrderbookSync" id="apidoc.element.coinbase-exchange.OrderbookSync.OrderbookSync">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>OrderbookSync
+        <span class="apidocSignatureSpan">(productID, apiURI, websocketURI, authenticatedClient)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">OrderbookSync = function (productID, apiURI, websocketURI, authenticatedClient) {
+  var self = this;
+
+  self.productID = productID || 'BTC-USD';
+  self.apiURI = apiURI || 'https://api.gdax.com';
+  self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+  self.authenticatedClient = authenticatedClient;
+
+  self._queue = [];
+  self._sequence = -1;
+
+  WebsocketClient.call(self, self.productID, self.websocketURI);
+  self.loadOrderbook();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### Orderbook Sync
+`OrderbookSync` creates a local mirror of the orderbook on GDAX using
+`Orderbook` and `WebsocketClient` as described [here](https://docs.gdax.com/#real-time-order-book).
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var orderbookSync = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">OrderbookSync</span>();
+console.log(orderbookSync.book.state());
+```
+
+## Testing
+
+```bash
+npm run test
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync.super_" id="apidoc.element.coinbase-exchange.OrderbookSync.super_">
+        function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.</span>super_
+        <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">super_ = function (productID, websocketURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+  EventEmitter.call(self);
+  self.connect();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.OrderbookSync.prototype" id="apidoc.module.coinbase-exchange.OrderbookSync.prototype">module coinbase-exchange.OrderbookSync.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.loadOrderbook" id="apidoc.element.coinbase-exchange.OrderbookSync.prototype.loadOrderbook">
+        function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>loadOrderbook
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadOrderbook = function () {
+  var self = this;
+  var bookLevel = 3;
+  var args = { 'level': bookLevel };
+
+  self.book = new Orderbook();
+
+  if (self.authenticatedClient) {
+    self.authenticatedClient.getProductOrderBook(args, self.productID, cb);
+  }
+  else {
+    if (!self.publicClient) {
+      self.publicClient = new PublicClient(self.productID, self.apiURI);
+    }
+    self.publicClient.getProductOrderBook(args, cb);
+  }
+
+  function cb(err, response, body) {
+    if (err) {
+      throw 'Failed to load orderbook: ' + err;
+    }
+
+    if (response.statusCode !== 200) {
+      throw 'Failed to load orderbook: ' + response.statusCode;
+    }
+
+    var data = JSON.parse(response.body);
+    self.book.state(data);
+
+    self._sequence = data.sequence;
+    _.forEach(self._queue, self.processMessage.bind(self));
+    self._queue = [];
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.onMessage" id="apidoc.element.coinbase-exchange.OrderbookSync.prototype.onMessage">
+        function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>onMessage
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onMessage = function (data) {
+  var self = this;
+  data = JSON.parse(data);
+
+  if (self._sequence ===  -1) {
+    // Orderbook snapshot not loaded yet
+    self._queue.push(data);
+  } else {
+    self.processMessage(data);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.OrderbookSync.prototype.processMessage" id="apidoc.element.coinbase-exchange.OrderbookSync.prototype.processMessage">
+        function <span class="apidocSignatureSpan">coinbase-exchange.OrderbookSync.prototype.</span>processMessage
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">processMessage = function (data) {
+  var self = this;
+
+  if (self._sequence == -1) {
+    // Resync is in process
+    return;
+  }
+  if (data.sequence &lt;= self._sequence) {
+    // Skip this one, since it was already processed
+    return;
+  }
+
+  if (data.sequence != self._sequence + 1) {
+    // Dropped a message, start a resync process
+    self._queue = [];
+    self._sequence = -1;
+
+    self.loadOrderbook();
+    return;
+  }
+
+  self._sequence = data.sequence;
+
+  switch (data.type) {
+    case 'open':
+      self.book.add(data);
+      break;
+
+    case 'done':
+      self.book.remove(data.order_id);
+      break;
+
+    case 'match':
+      self.book.match(data);
+      break;
+
+    case 'change':
+      self.book.change(data);
+      break;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.PublicClient" id="apidoc.module.coinbase-exchange.PublicClient">module coinbase-exchange.PublicClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.PublicClient" id="apidoc.element.coinbase-exchange.PublicClient.PublicClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>PublicClient
+        <span class="apidocSignatureSpan">(productID, apiURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PublicClient = function (productID, apiURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.apiURI = apiURI || 'https://api.gdax.com';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### The Public API Client
+The GDAX API has both public and private endpoints. If you're only
+interested in the public endpoints, you should use a `PublicClient`.
+
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var publicClient = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">PublicClient</span>();
+```
+
+All API methods are callback based. Your callback should accept three arguments:
+
+```
+var callback = function(err, response, data) {
+// your code here.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.PublicClient.prototype" id="apidoc.module.coinbase-exchange.PublicClient.prototype">module coinbase-exchange.PublicClient.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.addHeaders" id="apidoc.element.coinbase-exchange.PublicClient.prototype.addHeaders">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>addHeaders
+        <span class="apidocSignatureSpan">(obj, additional)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addHeaders = function (obj, additional) {
+  obj.headers = obj.headers || {};
+  return _.assign(obj.headers, {
+    'User-Agent': 'coinbase-node-client',
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }, additional);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.delete" id="apidoc.element.coinbase-exchange.PublicClient.prototype.delete">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>delete
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.get" id="apidoc.element.coinbase-exchange.PublicClient.prototype.get">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>get
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getCurrencies" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getCurrencies">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getCurrencies
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getCurrencies = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['currencies'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [`getProduct24HrStats`](https://docs.gdax.com/#get-24hr-stats)
+```javascript
+publicClient.getProduct24HrStats(callback);
+```
+
+* [`getCurrencies`](https://docs.gdax.com/#get-currencies)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getCurrencies</span>(callback);
+```
+
+* [`getTime`](https://docs.gdax.com/#time)
+```javascript
+publicClient.getTime(callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProduct24HrStats" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProduct24HrStats">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProduct24HrStats
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProduct24HrStats = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['products', self.productID, 'stats'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+publicClient.getProductHistoricRates(callback);
+// To include extra parameters:
+publicClient.getProductHistoricRates({'granularity': 3000}, callback);
+```
+
+* [`getProduct24HrStats`](https://docs.gdax.com/#get-24hr-stats)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getProduct24HrStats</span>(callback);
+```
+
+* [`getCurrencies`](https://docs.gdax.com/#get-currencies)
+```javascript
+publicClient.getCurrencies(callback);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductHistoricRates" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProductHistoricRates">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductHistoricRates
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductHistoricRates = function (args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = {'qs': args};
+  return prototype.get.call(self, ['products', self.productID, 'candles'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var trades publicClient.getProductTradeStream(8408000, function(trade) {
+    return Date.parse(trade.time) &gt;= 1463068e6
+})
+```
+
+* [`getProductHistoricRates`](https://docs.gdax.com/#get-historic-rates)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getProductHistoricRates</span>(callback);
+// To include extra parameters:
+publicClient.getProductHistoricRates({'granularity': 3000}, callback);
+```
+
+* [`getProduct24HrStats`](https://docs.gdax.com/#get-24hr-stats)
+```javascript
+publicClient.getProduct24HrStats(callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductOrderBook" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProductOrderBook">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductOrderBook
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductOrderBook = function (args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = { 'qs': args };
+  return prototype.get.call(
+      self, ['products', self.productID, 'book'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```javascript
+publicClient.getProducts(callback);
+```
+
+* [`getProductOrderBook`](https://docs.gdax.com/#get-product-order-book)
+```javascript
+// Get the order book at the default level of detail.
+publicClient.<span class="apidocCodeKeywordSpan">getProductOrderBook</span>(callback);
+// Get the order book at a specific level of detail.
+publicClient.getProductOrderBook({'level': 3}, callback);
+```
+
+* [`getProductTicker`](https://docs.gdax.com/#get-product-ticker)
+```javascript
+publicClient.getProductTicker(callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTicker" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTicker">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTicker
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductTicker = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['products', self.productID, 'ticker'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+publicClient.getProductOrderBook(callback);
+// Get the order book at a specific level of detail.
+publicClient.getProductOrderBook({'level': 3}, callback);
+```
+
+* [`getProductTicker`](https://docs.gdax.com/#get-product-ticker)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getProductTicker</span>(callback);
+```
+
+* [`getProductTrades`](https://docs.gdax.com/#get-trades)
+```javascript
+publicClient.getProductTrades(callback);
+// To make paginated requests, include page parameters
+publicClient.getProductTrades({'after': 1000}, callback);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTradeStream" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTradeStream">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTradeStream
+        <span class="apidocSignatureSpan">(tradesFrom, tradesTo)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductTradeStream = function (tradesFrom, tradesTo) {
+  var self = this;
+  var shouldStop = null;
+
+  if (typeof tradesTo === 'function') {
+    shouldStop = tradesTo;
+    tradesTo = null;
+  }
+
+  var rs = new Readable({objectMode: true});
+  var started = false;
+
+  rs._read = function() {
+    if (!started) {
+      started = true;
+      fetchTrades(self, rs, tradesFrom, tradesTo, shouldStop, 0);
+    }
+  };
+
+  return rs;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+* [`getProductTradeStream`](https://docs.gdax.com/#get-trades)
+Wraps around `getProductTrades`, fetches all trades with IDs `&gt;= tradesFrom` and `&lt;= tradesTo`.
+Handles pagination and rate limits.
+
+```javascript
+var trades = publicClient.<span class="apidocCodeKeywordSpan">getProductTradeStream</span>(8408000, 8409000);
+// tradesTo can also be a function
+var trades publicClient.getProductTradeStream(8408000, function(trade) {
+    return Date.parse(trade.time) &gt;= 1463068e6
+})
+```
+
+* [`getProductHistoricRates`](https://docs.gdax.com/#get-historic-rates)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTrades" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProductTrades">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProductTrades
+        <span class="apidocSignatureSpan">(args, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProductTrades = function (args, callback) {
+  var self = this;
+
+  args = args || {}
+  if (!callback &amp;&amp; (typeof args === 'function')) {
+    callback = args;
+    args = {};
+  }
+
+  var opts = {'qs': args};
+  return prototype.get.call(self, ['products', self.productID, 'trades'], opts, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [`getProductTicker`](https://docs.gdax.com/#get-product-ticker)
+```javascript
+publicClient.getProductTicker(callback);
+```
+
+* [`getProductTrades`](https://docs.gdax.com/#get-trades)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getProductTrades</span>(callback);
+// To make paginated requests, include page parameters
+publicClient.getProductTrades({'after': 1000}, callback);
+```
+
+* [`getProductTradeStream`](https://docs.gdax.com/#get-trades)
+Wraps around `getProductTrades`, fetches all trades with IDs `&gt;= tradesFrom` and `&lt;= tradesTo`.
+Handles pagination and rate limits.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getProducts" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getProducts">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getProducts
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getProducts = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['products'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+learn about the API responses of each endpoint [by reading our
+documentation](https://docs.gdax.com/#market-data).
+
+#### Public API Methods
+
+* [`getProducts`](https://docs.gdax.com/#get-products)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getProducts</span>(callback);
+```
+
+* [`getProductOrderBook`](https://docs.gdax.com/#get-product-order-book)
+```javascript
+// Get the order book at the default level of detail.
+publicClient.getProductOrderBook(callback);
+// Get the order book at a specific level of detail.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.getTime" id="apidoc.element.coinbase-exchange.PublicClient.prototype.getTime">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>getTime
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getTime = function (callback) {
+  var self = this;
+  return prototype.get.call(self, ['time'], callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* [`getCurrencies`](https://docs.gdax.com/#get-currencies)
+```javascript
+publicClient.getCurrencies(callback);
+```
+
+* [`getTime`](https://docs.gdax.com/#time)
+```javascript
+publicClient.<span class="apidocCodeKeywordSpan">getTime</span>(callback);
+```
+
+### The Authenticated API Client
+The [private exchange API
+endpoints](https://docs.gdax.com/#private) require you to
+authenticate with an API key. You can create a new API key [in your exchange
+account's settings](https://gdax.com/settings).
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeAbsoluteURI" id="apidoc.element.coinbase-exchange.PublicClient.prototype.makeAbsoluteURI">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeAbsoluteURI
+        <span class="apidocSignatureSpan">(relativeURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeAbsoluteURI = function (relativeURI) {
+  return this.apiURI + relativeURI;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeRelativeURI" id="apidoc.element.coinbase-exchange.PublicClient.prototype.makeRelativeURI">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeRelativeURI
+        <span class="apidocSignatureSpan">(parts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeRelativeURI = function (parts) {
+  return '/' + parts.join('/');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.makeRequestCallback" id="apidoc.element.coinbase-exchange.PublicClient.prototype.makeRequestCallback">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>makeRequestCallback
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeRequestCallback = function (callback) {
+  return function(err, response, data) {
+    try {
+      data = JSON.parse(data);
+    } catch (e) {
+      data = null
+    }
+    callback(err, response, data);
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.post" id="apidoc.element.coinbase-exchange.PublicClient.prototype.post">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>post
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.put" id="apidoc.element.coinbase-exchange.PublicClient.prototype.put">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>put
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function wrapper() {
+  var argsIndex = -1,
+      argsLength = arguments.length,
+      leftIndex = -1,
+      leftLength = partials.length,
+      args = Array(leftLength + argsLength),
+      fn = (this &amp;&amp; this !== root &amp;&amp; this instanceof wrapper) ? Ctor : func;
+
+  while (++leftIndex &lt; leftLength) {
+    args[leftIndex] = partials[leftIndex];
+  }
+  while (argsLength--) {
+    args[leftIndex++] = arguments[++argsIndex];
+  }
+  return apply(fn, isBind ? thisArg : this, args);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.PublicClient.prototype.request" id="apidoc.element.coinbase-exchange.PublicClient.prototype.request">
+        function <span class="apidocSignatureSpan">coinbase-exchange.PublicClient.prototype.</span>request
+        <span class="apidocSignatureSpan">(method, uriParts, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (method, uriParts, opts, callback) {
+  var self = this;
+  opts = opts || {};
+  if (!callback &amp;&amp; (typeof opts === 'function')) {
+    callback = opts;
+    opts = {};
+  }
+  if (!callback) {
+    throw "Must supply a callback."
+  }
+  _.assign(opts, {
+    'method': method.toUpperCase(),
+    'uri': self.makeAbsoluteURI(self.makeRelativeURI(uriParts)),
+  });
+  self.addHeaders(opts);
+  request(opts, self.makeRequestCallback(callback));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.WebsocketClient" id="apidoc.module.coinbase-exchange.WebsocketClient">module coinbase-exchange.WebsocketClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.WebsocketClient" id="apidoc.element.coinbase-exchange.WebsocketClient.WebsocketClient">
+        function <span class="apidocSignatureSpan">coinbase-exchange.</span>WebsocketClient
+        <span class="apidocSignatureSpan">(productID, websocketURI)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">WebsocketClient = function (productID, websocketURI) {
+  var self = this;
+  self.productID = productID || 'BTC-USD';
+  self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+  EventEmitter.call(self);
+  self.connect();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+[exchange websocket messages](https://docs.gdax.com/#messages).
+=======
+The `WebsocketClient` allows you to connect and listen to the
+[exchange websocket messages](https://docs.exchange.coinbase.com/#messages).
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; Add deprecation notice
+```javascript
+var CoinbaseExchange = require('coinbase-exchange');
+var websocket = new CoinbaseExchange.<span class="apidocCodeKeywordSpan">WebsocketClient</span>();
+websocket.on('message', function(data) { console.log(data); });
+```
+The following events can be emitted from the `WebsocketClient`:
+* `open`
+* `message`
+* `close`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.super_" id="apidoc.element.coinbase-exchange.WebsocketClient.super_">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coinbase-exchange.WebsocketClient.prototype" id="apidoc.module.coinbase-exchange.WebsocketClient.prototype">module coinbase-exchange.WebsocketClient.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.connect" id="apidoc.element.coinbase-exchange.WebsocketClient.prototype.connect">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>connect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function () {
+  var self = this;
+
+  if (self.socket) {
+    self.socket.close();
+  }
+
+  self.socket = new Websocket(self.websocketURI);
+
+  self.socket.on('message', self.onMessage.bind(self));
+  self.socket.on('open', self.onOpen.bind(self));
+  self.socket.on('close', self.onClose.bind(self));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.disconnect" id="apidoc.element.coinbase-exchange.WebsocketClient.prototype.disconnect">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>disconnect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">disconnect = function () {
+  var self = this;
+
+  if (!self.socket) {
+    throw "Could not disconnect (not connected)"
+  }
+
+  self.socket.close();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onClose" id="apidoc.element.coinbase-exchange.WebsocketClient.prototype.onClose">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onClose
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onClose = function () {
+  var self = this;
+  clearInterval(self.pinger);
+  self.socket = null;
+  self.emit('close');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onMessage" id="apidoc.element.coinbase-exchange.WebsocketClient.prototype.onMessage">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onMessage
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onMessage = function (data) {
+  var self = this;
+  self.emit('message', JSON.parse(data));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coinbase-exchange.WebsocketClient.prototype.onOpen" id="apidoc.element.coinbase-exchange.WebsocketClient.prototype.onOpen">
+        function <span class="apidocSignatureSpan">coinbase-exchange.WebsocketClient.prototype.</span>onOpen
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onOpen = function () {
+  var self = this;
+  self.emit('open');
+  var subscribeMessage = {
+    type: 'subscribe',
+    product_id: self.productID,
+  };
+  self.socket.send(JSON.stringify(subscribeMessage));
+
+  // Set a 30 second ping to keep connection alive
+  self.pinger = setInterval(function(){
+    self.socket.ping("keepalive");
+  }, 30000);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
