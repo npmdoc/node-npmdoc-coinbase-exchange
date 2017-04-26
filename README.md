@@ -1,6 +1,6 @@
 # npmdoc-coinbase-exchange
 
-#### api documentation for  [coinbase-exchange (v0.2.2)](https://github.com/coinbase/coinbase-exchange-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-coinbase-exchange.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-coinbase-exchange) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange.svg)](https://travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange)
+#### basic api documentation for  [coinbase-exchange (v0.2.2)](https://github.com/coinbase/coinbase-exchange-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-coinbase-exchange.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-coinbase-exchange) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange.svg)](https://travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange)
 
 #### Client for the Coinbase Exchange API
 
@@ -98,7 +98,8 @@
         "scan_packages": "nsp check --output summary",
         "test": "mocha --ui qunit --bail --reporter list tests/*.js"
     },
-    "version": "0.2.2"
+    "version": "0.2.2",
+    "bin": {}
 }
 ```
 

@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "#### api documentation for  [coinbase-exchange (v0.2.2)](https://github.com/coinbase/coinbase-exchange-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-coinbase-exchange.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-coinbase-exchange) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange.svg)](https://travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange)",
+    "description": "#### basic api documentation for  [coinbase-exchange (v0.2.2)](https://github.com/coinbase/coinbase-exchange-node)  [![npm package](https://img.shields.io/npm/v/npmdoc-coinbase-exchange.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-coinbase-exchange) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange.svg)](https://travis-ci.org/npmdoc/node-npmdoc-coinbase-exchange)",
     "devDependencies": {
         "coinbase-exchange": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
@@ -35,5 +35,5 @@
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "2017.4.26"
 }
