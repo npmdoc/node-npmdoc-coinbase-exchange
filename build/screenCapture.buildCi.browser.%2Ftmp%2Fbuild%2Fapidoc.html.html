@@ -1043,7 +1043,23 @@ should be in the same format:
     'CB-ACCESS-PASSPHRASE': self.passphrase,
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var method = 'PUT';
+  var relativeURI = '/orders';
+  var opts = {
+    method : 'PUT',
+    uri : 'https://api.gdax.com/orders'
+  }
+
+  var sig = authClient.<span class="apidocCodeKeywordSpan">_getSignature</span>(method, relativeURI, opts)
+
+  assert.equal(sig['CB-ACCESS-KEY'], key);
+  assert.equal(sig['CB-ACCESS-PASSPHRASE'], passphrase);
+
+  assert(sig['CB-ACCESS-TIMESTAMP'])
+  assert(sig['CB-ACCESS-SIGN'])
+});
+...</pre></li>
     </ul>
 
 
@@ -1072,7 +1088,23 @@ should be in the same format:
   var opts = { 'body': params };
   return prototype.post.call(self, ['orders'], opts, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var opts = { 'body': params };
+  return prototype.post.call(self, ['orders'], opts, callback);
+};
+
+prototype.buy = function(params, callback) {
+  var self = this;
+  params.side = 'buy';
+  return self.<span class="apidocCodeKeywordSpan">_placeOrder</span>(params, callback);
+};
+
+prototype.sell = function(params, callback) {
+  var self = this;
+  params.side = 'sell';
+  return self._placeOrder(params, callback);
+};
+...</pre></li>
     </ul>
 
 
@@ -1094,7 +1126,23 @@ should be in the same format:
   var opts = { 'body': params };
   return prototype.post.call(self, ['transfers'], opts, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var opts = { 'qs': args };
+  return prototype.get.call(self, ['fills'], opts, callback);
+};
+
+prototype.deposit = function(params, callback) {
+  var self = this;
+  params.type = 'deposit';
+  return self.<span class="apidocCodeKeywordSpan">_transferFunds</span>(params, callback);
+};
+
+prototype.withdraw = function(params, callback) {
+  var self = this;
+  params.type = 'withdraw';
+  return self._transferFunds(params, callback);
+};
+...</pre></li>
     </ul>
 
 
@@ -1304,7 +1352,22 @@ authedClient.<span class="apidocCodeKeywordSpan">cancelOrders</span>(callback);
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  'deleted-id-8'
+];
+
+var totalExpectedDeleted = cancelledOrdersOne.concat(cancelledOrdersTwo);
+
+// first list of Id's that just got cancelled
+nock(EXCHANGE_API_URL)
+.<span class="apidocCodeKeywordSpan">delete</span>('/orders')
+.reply(200, cancelledOrdersOne);
+
+// second list of Id's that just got cancelled
+nock(EXCHANGE_API_URL)
+.delete('/orders')
+.reply(200, cancelledOrdersTwo);
+...</pre></li>
     </ul>
 
 
@@ -1364,7 +1427,23 @@ authedClient.withdraw(withdrawParamsUSD, callback);
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+node.orders.push(order);
+self._ordersByID[order.id] = order;
+  };
+
+  prototype.remove = function(orderId) {
+var self = this;
+var order = self.<span class="apidocCodeKeywordSpan">get</span>(orderId);
+
+if (!order) {
+  return;
+}
+
+var tree = self._getTree(order.side);
+var node = tree.find({price: order.price});
+...</pre></li>
     </ul>
 
 
@@ -1695,7 +1774,23 @@ publicClient.getProductTicker(callback);
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  expectedOrder.side = 'buy'
+
+  var expectedResponse = {
+"id": "0428b97b-bec1-429e-a94c-59992926778d"
+  }
+
+  nock(EXCHANGE_API_URL)
+  .<span class="apidocCodeKeywordSpan">post</span>('/orders', expectedOrder)
+  .reply(200, expectedResponse)
+
+  authClient.buy(order, function(err, resp, data) {
+assert.ifError(err);
+assert.deepEqual(data, expectedResponse);
+
+nock.cleanAll();
+...</pre></li>
     </ul>
 
 
@@ -1891,7 +1986,23 @@ The orderbook has the following methods:
     <li>description and source-code<pre class="apidocCodePre">_getTree = function (side) {
   return side == 'buy' ? this._bids : this._asks;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+order = {
+  id: order.order_id || order.id,
+  side: order.side,
+  price: num(order.price),
+  size: num(order.size || order.remaining_size),
+};
+
+var tree = self.<span class="apidocCodeKeywordSpan">_getTree</span>(order.side);
+var node = tree.find({price: order.price});
+
+if (!node) {
+  node = {
+    price: order.price,
+    orders: []
+  }
+...</pre></li>
     </ul>
 
 
@@ -1927,7 +2038,23 @@ The orderbook has the following methods:
   node.orders.push(order);
   self._ordersByID[order.id] = order;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+book.bids.forEach(function(order) {
+  order = {
+    id: order[2],
+    side: 'buy',
+    price: num(order[0]),
+    size: num(order[1])
+  }
+  self.<span class="apidocCodeKeywordSpan">add</span>(order);
+});
+
+book.asks.forEach(function(order) {
+  order = {
+    id: order[2],
+    side: 'sell',
+    price: num(order[0]),
+...</pre></li>
     </ul>
 
 
@@ -1962,7 +2089,23 @@ The orderbook has the following methods:
   nodeOrder.size = size;
   self._ordersByID[nodeOrder.id] = nodeOrder;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        break;
+
+      case 'match':
+        self.book.match(data);
+        break;
+
+      case 'change':
+        self.book.<span class="apidocCodeKeywordSpan">change</span>(data);
+        break;
+    }
+  };
+
+});
+
+module.exports = exports = OrderbookSync;
+...</pre></li>
     </ul>
 
 
@@ -1977,7 +2120,23 @@ The orderbook has the following methods:
     <li>description and source-code<pre class="apidocCodePre">get = function (orderId) {
   return this._ordersByID[orderId]
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+node.orders.push(order);
+self._ordersByID[order.id] = order;
+  };
+
+  prototype.remove = function(orderId) {
+var self = this;
+var order = self.<span class="apidocCodeKeywordSpan">get</span>(orderId);
+
+if (!order) {
+  return;
+}
+
+var tree = self._getTree(order.side);
+var node = tree.find({price: order.price});
+...</pre></li>
     </ul>
 
 
@@ -2010,7 +2169,23 @@ The orderbook has the following methods:
     self.remove(order.id);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      break;
+
+    case 'done':
+      self.book.remove(data.order_id);
+      break;
+
+    case 'match':
+      self.book.<span class="apidocCodeKeywordSpan">match</span>(data);
+      break;
+
+    case 'change':
+      self.book.change(data);
+      break;
+  }
+};
+...</pre></li>
     </ul>
 
 
@@ -2043,7 +2218,23 @@ The orderbook has the following methods:
 
   delete self._ordersByID[order.id];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var node = tree.find({price: order.price});
+  assert(node);
+  var orders = node.orders;
+
+  orders.splice(orders.indexOf(order), 1);
+
+  if (orders.length === 0) {
+    tree.<span class="apidocCodeKeywordSpan">remove</span>(node);
+  }
+
+  delete self._ordersByID[order.id];
+};
+
+prototype.match = function(match) {
+  var self = this;
+...</pre></li>
     </ul>
 
 
@@ -2235,7 +2426,22 @@ npm run test
     self._queue = [];
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+self.authenticatedClient = authenticatedClient;
+
+self._queue = [];
+self._sequence = -1;
+
+WebsocketClient.call(self, self.productID, self.websocketURI);
+self.<span class="apidocCodeKeywordSpan">loadOrderbook</span>();
+};
+
+util.inherits(OrderbookSync, WebsocketClient);
+
+_.assign(OrderbookSync.prototype, new function() {
+var prototype = this;
+...</pre></li>
     </ul>
 
 
@@ -2311,7 +2517,23 @@ npm run test
       break;
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var self = this;
+  data = JSON.parse(data);
+
+  if (self._sequence ===  -1) {
+    // Orderbook snapshot not loaded yet
+    self._queue.push(data);
+  } else {
+    self.<span class="apidocCodeKeywordSpan">processMessage</span>(data);
+  }
+};
+
+prototype.loadOrderbook = function() {
+  var self = this;
+  var bookLevel = 3;
+  var args = { 'level': bookLevel };
+...</pre></li>
     </ul>
 
 
@@ -2374,7 +2596,22 @@ var callback = function(err, response, data) {
     'Content-Type': 'application/json',
   }, additional);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var relativeURI = self.makeRelativeURI(uriParts);
+  method = method.toUpperCase();
+  _.assign(opts, {
+    'method': method,
+    'uri': self.makeAbsoluteURI(relativeURI)
+  });
+
+  self.<span class="apidocCodeKeywordSpan">addHeaders</span>(opts, self._getSignature(method, relativeURI, opts));
+  request(opts, self.makeRequestCallback(callback));
+};
+
+prototype._getSignature = function(method, relativeURI, opts) {
+  var self = this;
+  var body = '';
+...</pre></li>
     </ul>
 
 
@@ -2402,7 +2639,22 @@ var callback = function(err, response, data) {
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  'deleted-id-8'
+];
+
+var totalExpectedDeleted = cancelledOrdersOne.concat(cancelledOrdersTwo);
+
+// first list of Id's that just got cancelled
+nock(EXCHANGE_API_URL)
+.<span class="apidocCodeKeywordSpan">delete</span>('/orders')
+.reply(200, cancelledOrdersOne);
+
+// second list of Id's that just got cancelled
+nock(EXCHANGE_API_URL)
+.delete('/orders')
+.reply(200, cancelledOrdersTwo);
+...</pre></li>
     </ul>
 
 
@@ -2430,7 +2682,23 @@ var callback = function(err, response, data) {
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+node.orders.push(order);
+self._ordersByID[order.id] = order;
+  };
+
+  prototype.remove = function(orderId) {
+var self = this;
+var order = self.<span class="apidocCodeKeywordSpan">get</span>(orderId);
+
+if (!order) {
+  return;
+}
+
+var tree = self._getTree(order.side);
+var node = tree.find({price: order.price});
+...</pre></li>
     </ul>
 
 
@@ -2773,7 +3041,23 @@ account's settings](https://gdax.com/settings).
     <li>description and source-code<pre class="apidocCodePre">makeAbsoluteURI = function (relativeURI) {
   return this.apiURI + relativeURI;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    throw "Must supply a callback"
+  }
+
+  var relativeURI = self.makeRelativeURI(uriParts);
+  method = method.toUpperCase();
+  _.assign(opts, {
+    'method': method,
+    'uri': self.<span class="apidocCodeKeywordSpan">makeAbsoluteURI</span>(relativeURI)
+  });
+
+  self.addHeaders(opts, self._getSignature(method, relativeURI, opts));
+  request(opts, self.makeRequestCallback(callback));
+};
+
+prototype._getSignature = function(method, relativeURI, opts) {
+...</pre></li>
     </ul>
 
 
@@ -2788,7 +3072,23 @@ account's settings](https://gdax.com/settings).
     <li>description and source-code<pre class="apidocCodePre">makeRelativeURI = function (parts) {
   return '/' + parts.join('/');
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  opts = {};
+}
+
+if (!callback) {
+  throw "Must supply a callback"
+}
+
+var relativeURI = self.<span class="apidocCodeKeywordSpan">makeRelativeURI</span>(uriParts);
+method = method.toUpperCase();
+_.assign(opts, {
+  'method': method,
+  'uri': self.makeAbsoluteURI(relativeURI)
+});
+
+self.addHeaders(opts, self._getSignature(method, relativeURI, opts));
+...</pre></li>
     </ul>
 
 
@@ -2810,7 +3110,23 @@ account's settings](https://gdax.com/settings).
     callback(err, response, data);
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+method = method.toUpperCase();
+_.assign(opts, {
+  'method': method,
+  'uri': self.makeAbsoluteURI(relativeURI)
+});
+
+self.addHeaders(opts, self._getSignature(method, relativeURI, opts));
+request(opts, self.<span class="apidocCodeKeywordSpan">makeRequestCallback</span>(callback));
+  };
+
+  prototype._getSignature = function(method, relativeURI, opts) {
+var self = this;
+var body = '';
+
+if (opts.body) {
+...</pre></li>
     </ul>
 
 
@@ -2838,7 +3154,23 @@ account's settings](https://gdax.com/settings).
   }
   return apply(fn, isBind ? thisArg : this, args);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  expectedOrder.side = 'buy'
+
+  var expectedResponse = {
+"id": "0428b97b-bec1-429e-a94c-59992926778d"
+  }
+
+  nock(EXCHANGE_API_URL)
+  .<span class="apidocCodeKeywordSpan">post</span>('/orders', expectedOrder)
+  .reply(200, expectedResponse)
+
+  authClient.buy(order, function(err, resp, data) {
+assert.ifError(err);
+assert.deepEqual(data, expectedResponse);
+
+nock.cleanAll();
+...</pre></li>
     </ul>
 
 
@@ -2979,7 +3311,22 @@ The following events can be emitted from the `WebsocketClient`:
   self.socket.on('open', self.onOpen.bind(self));
   self.socket.on('close', self.onClose.bind(self));
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var _  = {assign: require('lodash.assign')};
+
+var WebsocketClient = function(productID, websocketURI) {
+var self = this;
+self.productID = productID || 'BTC-USD';
+self.websocketURI = websocketURI || 'wss://ws-feed.gdax.com';
+EventEmitter.call(self);
+self.<span class="apidocCodeKeywordSpan">connect</span>();
+};
+
+util.inherits(WebsocketClient, EventEmitter);
+
+_.assign(WebsocketClient.prototype, new function() {
+var prototype = this;
+...</pre></li>
     </ul>
 
 
